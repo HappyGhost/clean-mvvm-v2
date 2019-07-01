@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_card_bank_padding_left_right">10dp</dimen>
+    <dimen name="item_card_bank_padding_top">10dp</dimen>
+    <dimen name="item_card_bank_content_padding">10dp</dimen>
+    <dimen name="item_card_bank_logo_width_height">60dp</dimen>
+    <dimen name="item_card_bank_logo_margin_right">10dp</dimen>
+    <dimen name="content_highlight_text_size">16sp</dimen>
+    <dimen name="content_normal_text_size">14sp</dimen>
+    <dimen name="item_card_bank_content_line_spacing">5dp</dimen>
+</resources>

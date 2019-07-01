@@ -1,0 +1,26 @@
+{
+  "offers": [
+    {
+      "min_amount": 30000000,
+      "max_amount": 100000000,
+      "min_tenor": 6,
+      "max_tenor": 18,
+      "interest_rate": 19.99,
+      "bank": {
+        "name": "Vietcombank",
+        "logo": "https://www.vietcombank.com.vn/images/logo30.png"
+      }
+    },
+    {
+      "min_amount": 50000000,
+      "max_amount": 10000000,
+      "min_tenor": 48,
+      "max_tenor": 120,
+      "interest_rate": 12.05,
+      "bank": {
+        "name": "Vietcombank",
+        "logo": "https://www.vietcombank.com.vn/images/logo30.png"
+      }
+    }
+  ]
+}

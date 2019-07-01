@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
+
+    <string name="bank_item_interest_rate">Interest rate: %.2f</string>
+    <string name="bank_item_max_amount">Max amount: %s millions</string>
+    <string name="bank_item_max_tenor">Max tenor: %d months</string>
+    <string name="bank_item_min_amount">Min amount: %s millions</string>
+    <string name="bank_item_min_tenor">Min tenor: %d months</string>
 </resources>
