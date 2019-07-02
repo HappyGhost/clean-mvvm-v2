@@ -1,4 +1,4 @@
-package com.myapp.myapplication.feature.dashboard.adapter
+package com.myapp.myapplication.feature.dashboard.view.adapter
 
 import android.view.ViewGroup
 import com.myapp.business.feature.bank.info.BankOfferInfo

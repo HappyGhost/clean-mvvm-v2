@@ -8,12 +8,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.myapp.business.core.callback.Status.*
 import com.myapp.business.feature.bank.info.BankOfferInfo
 import com.myapp.mvvmexample.core.view.BaseFragment
 import com.myapp.mvvmexample.core.view.adapter.AdapterItemClicked
 import com.myapp.myapplication.R
-import com.myapp.myapplication.feature.dashboard.adapter.BankOfferAdapter
+import com.myapp.myapplication.feature.dashboard.view.adapter.BankOfferAdapter
 import com.myapp.myapplication.feature.dashboard.viewmodel.BankOfferViewModel
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import javax.inject.Inject
@@ -39,7 +40,7 @@ class DashboardFragment : BaseFragment() {
     private fun initBankOfferRecycler() {
         var bankOfferAdapter = BankOfferAdapter(object : AdapterItemClicked<BankOfferInfo> {
             override fun onItemClicked(data: BankOfferInfo) {
-
+                Navigation.findNavController(rbBanks!!).navigate(R.id.registerLoanFragment)
             }
         })
         with(rbBanks) {

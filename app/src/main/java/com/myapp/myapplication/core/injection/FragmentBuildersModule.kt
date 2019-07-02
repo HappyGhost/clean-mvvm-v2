@@ -17,6 +17,7 @@
 package com.android.example.github.di
 
 import com.myapp.myapplication.feature.dashboard.view.DashboardFragment
+import com.myapp.myapplication.feature.loan.view.RegisterLoanFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -25,5 +26,8 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBuildersModule {
     @ContributesAndroidInjector
     abstract fun contributeDashboardFragment(): DashboardFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeRegisterLoanFragment(): RegisterLoanFragment
 
 }

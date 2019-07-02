@@ -20,8 +20,7 @@ import android.app.Application
 import com.myapp.api.feature.bank.repository.BankRepositoryImpl
 import com.myapp.api.feature.bank.service.BankService
 import com.myapp.business.feature.bank.repository.BankRepository
-import com.myapp.business.feature.bank.usecase.GetBankOffersIUseCase
-import com.myapp.business.feature.bank.usecase.GetBankOffersUseCaseImpl
+import com.myapp.business.feature.bank.usecase.*
 import com.myapp.myapplication.feature.mock.FakeInterceptor
 import dagger.Module
 import dagger.Provides
@@ -63,15 +62,23 @@ class AppModule {
         return FakeInterceptor(application.applicationContext)
     }
 
-    @Singleton
     @Provides
     fun provideGetBankOfferUc(repository: BankRepository): GetBankOffersIUseCase {
         return GetBankOffersUseCaseImpl(repository)
     }
 
-    @Singleton
     @Provides
     fun provideBankRepository(retrofit: Retrofit): BankRepository {
         return BankRepositoryImpl(retrofit.create(BankService::class.java))
+    }
+
+    @Provides
+    fun provideGetProvincesUc(repository: BankRepository): GetListProvinceUseCase {
+        return GetListProvinceUseCaseImpl(repository)
+    }
+
+    @Provides
+    fun provideSubmitLoanUseCase(repository: BankRepository): SubmitLoanUseCase {
+        return SubmitLoanUseCaseImpl(repository)
     }
 }

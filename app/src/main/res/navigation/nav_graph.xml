@@ -5,5 +5,11 @@
 
     <fragment android:id="@+id/dashboardFragment"
               android:name="com.myapp.myapplication.feature.dashboard.view.DashboardFragment"
-              android:label="DashboardFragment"/>
+              android:label="DashboardFragment">
+        <action android:id="@+id/action_dashboardFragment_to_registerLoanFragment"
+                app:destination="@id/registerLoanFragment"/>
+    </fragment>
+    <fragment android:id="@+id/registerLoanFragment"
+              android:name="com.myapp.myapplication.feature.loan.view.RegisterLoanFragment"
+              android:label="RegisterLoanFragment"/>
 </navigation>

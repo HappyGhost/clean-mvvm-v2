@@ -20,6 +20,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.myapp.mvvmexample.core.injection.BankViewModelFactory
 import com.myapp.myapplication.feature.dashboard.viewmodel.BankOfferViewModel
+import com.myapp.myapplication.feature.loan.viewmodel.RegisterLoanViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -31,6 +32,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(BankOfferViewModel::class)
     abstract fun bindBankOfferViewModel(bankOfferViewModel: BankOfferViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RegisterLoanViewModel::class)
+    abstract fun bindRegisterLoanViewModel(registerLoanViewModel: RegisterLoanViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: BankViewModelFactory): ViewModelProvider.Factory
