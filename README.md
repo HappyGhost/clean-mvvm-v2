@@ -17,6 +17,7 @@ This is the sample code to apply technology following points below:
 + Dagger is big compoenent and hasn't been splited into small features
 + Standard unit test for 3 layer (app, business and api)
 + Remove dependency on LiveData in Business layer.
++ Recheck dependency between 3 layer (app, business and api)
 
 # Reference:
 + [Google advance sample code](https://github.com/googlesamples/android-architecture-components)
