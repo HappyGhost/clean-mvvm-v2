@@ -24,7 +24,7 @@ class EmptyValidationRule : BaseValidationRule {
     constructor(context: Context) : super(context.getString(R.string.error_empty_field))
 
     override fun isValid(input: String): Boolean {
-        return !input.isNullOrEmpty()
+        return input.isNotEmpty()
     }
 }
 
@@ -39,8 +39,12 @@ class NationalIdValidationRule(errorMessage: String) : BaseValidationRule(errorM
 class MinIncomeLoanValidationRule(errorMessage: String) : BaseValidationRule(errorMessage) {
 
     override fun isValid(input: String): Boolean {
-        val income = input.toDouble()
-        return income > 3000000
+        return try {
+            val income = input.toDouble()
+            income > 3000000
+        } catch (e: Exception) {
+            false
+        }
     }
 
 }
