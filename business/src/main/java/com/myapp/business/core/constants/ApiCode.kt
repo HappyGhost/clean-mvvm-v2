@@ -3,7 +3,7 @@ package com.myapp.business.core.constants
 object ApiCode {
     val UNKNOWN = "-1"
 
-    enum class ExampleEnum private constructor(val value: String) {
+    enum class ExampleEnum constructor(val value: String) {
         SUCCESS(""),
         UNKNOWN(ApiCode.UNKNOWN);
 

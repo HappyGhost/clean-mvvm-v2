@@ -41,23 +41,25 @@ class RegisterLoanFragment : BaseFragment() {
     }
 
     private fun initProvinceField() {
-        val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_item, arrayListOf<String>())
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapter = ArrayAdapter(
+            context, android.R.layout.simple_spinner_item,
+            arrayListOf<String>()
+        ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
+        spinnerProvince.adapter = adapter
         registerLoanViewModel.getProvinceLiveData().observe(this, Observer { response ->
-            run {
-                when {
-                    response?.status == Status.LOADING -> {
-                        showProcessDialog()
-                    }
-                    response?.status == Status.ERROR -> {
-                        hideProgressDialog()
-                    }
-                    response?.status == Status.SUCCESS -> {
-                        hideProgressDialog()
-                        spinnerProvince.setAdapter(adapter)
-                        adapter.clear()
-                        adapter.addAll(response.data?.map { it.name }?.toMutableList()!!)
-                        adapter.notifyDataSetChanged()
+            when (response?.status) {
+                Status.LOADING -> {
+                    showProcessDialog()
+                }
+                Status.ERROR -> {
+                    hideProgressDialog()
+                }
+                Status.SUCCESS -> {
+                    hideProgressDialog()
+                    with(adapter) {
+                        clear()
+                        addAll(response.data?.map { it.name }?.toMutableList()!!)
+                        notifyDataSetChanged()
                     }
                 }
             }
@@ -84,14 +86,12 @@ class RegisterLoanFragment : BaseFragment() {
                     spinnerProvince.selectedItem.toString(),
                     edtMonthlyIncome.text.toString()
                 ).observe(this, Observer { response ->
-                    run {
-                        when {
-                            response?.status == Status.SUCCESS -> {
-                                showSuccess()
-                            }
+                    when (response?.status) {
+                        Status.SUCCESS -> {
+                            showSuccess()
                         }
-
                     }
+
                 })
             }
 
