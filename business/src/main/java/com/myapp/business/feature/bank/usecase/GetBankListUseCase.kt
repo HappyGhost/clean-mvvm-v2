@@ -1,6 +1,6 @@
 package com.myapp.business.feature.bank.usecase
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.myapp.business.core.callback.Resource
 import com.myapp.business.core.usecase.BaseUseCase
 import com.myapp.business.core.usecase.IUseCase
@@ -13,7 +13,8 @@ interface GetBankOffersIUseCase : IUseCase<List<BankOfferInfo>> {
     fun buildUseCase(): GetBankOffersIUseCase
 }
 
-open class GetBankOffersUseCaseImpl(var bankRepository: BankRepository) : BaseUseCase<List<BankOfferInfo>>(), GetBankOffersIUseCase {
+class GetBankOffersUseCaseImpl(var bankRepository: BankRepository) :
+    BaseUseCase<List<BankOfferInfo>>(), GetBankOffersIUseCase {
 
     private val bankResult = MutableLiveData<Resource<List<BankOfferInfo>>>()
     override fun onError(e: Throwable) {

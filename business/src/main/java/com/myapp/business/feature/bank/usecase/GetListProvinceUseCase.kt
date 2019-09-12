@@ -1,6 +1,6 @@
 package com.myapp.business.feature.bank.usecase
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.myapp.business.core.callback.Resource
 import com.myapp.business.core.usecase.BaseUseCase
 import com.myapp.business.core.usecase.IUseCase

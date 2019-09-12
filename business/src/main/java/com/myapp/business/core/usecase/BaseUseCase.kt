@@ -1,7 +1,7 @@
 package com.myapp.business.core.usecase
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.myapp.business.core.callback.Resource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -16,23 +16,24 @@ interface IUseCase<T> {
 
 abstract class BaseUseCase<K> : IUseCase<K> {
 
-    internal var mDisposable: Disposable? = null
+    private var mDisposable: Disposable? = null
 
     protected var observable: Observable<K>? = null
 
 
     override fun execute(): LiveData<Resource<K>> {
-        mDisposable = observable
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeOn(Schedulers.io())
-                ?.subscribe({ info -> onSuccess(info) }, { throwable -> onError(throwable) })
+        mDisposable = observable?.run {
+            observeOn(AndroidSchedulers.mainThread())
+            subscribeOn(Schedulers.io())
+            subscribe({ info -> onSuccess(info) }, { throwable -> onError(throwable) })
+        }
         resultLiveData().postValue(Resource.loading(null))
         return resultLiveData()
     }
 
     override fun destroy() {
-        if (mDisposable != null) {
-            mDisposable!!.dispose()
+        mDisposable?.run {
+            dispose()
         }
     }
 
