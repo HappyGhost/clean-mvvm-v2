@@ -13,7 +13,7 @@ class BankOfferMapper : BaseInfoMapper<BankOfferInfo, BankOfferModel>() {
             value.maxTenor,
             value.minAmount,
             value.minTenor,
-            value.InterestRate,
+            value.interestRate,
             value.bankModel.logo
         )
     }

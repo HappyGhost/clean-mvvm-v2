@@ -8,6 +8,6 @@ data class BankOfferModel(
     @SerializedName("max_amount") val maxAmount: String,
     @SerializedName("min_tenor") val minTenor: Int,
     @SerializedName("max_tenor") val maxTenor: Int,
-    @SerializedName("interest_rate") val InterestRate: Float,
+    @SerializedName("interest_rate") val interestRate: Float,
     @SerializedName("bank") val bankModel: BankModel
 )
