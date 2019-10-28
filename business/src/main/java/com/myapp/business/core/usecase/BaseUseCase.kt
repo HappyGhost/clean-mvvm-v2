@@ -23,11 +23,11 @@ abstract class BaseUseCase<K> : IUseCase<K> {
 
     override fun execute(): LiveData<Resource<K>> {
         mDisposable = observable?.run {
+            resultLiveData().postValue(Resource.loading(null))
             observeOn(AndroidSchedulers.mainThread())
             subscribeOn(Schedulers.io())
             subscribe({ info -> onSuccess(info) }, { throwable -> onError(throwable) })
         }
-        resultLiveData().postValue(Resource.loading(null))
         return resultLiveData()
     }
 

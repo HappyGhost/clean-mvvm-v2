@@ -28,7 +28,7 @@ class GetBankOffersUseCaseImplTest {
     }
 
     @After
-    fun afterEndEveryTestCase() = RxJavaPlugins.reset()
+    fun tearDown() = RxJavaPlugins.reset()
 
     /* This is the way which i refer google example and article about unit test RX and live data*/
     @Test
@@ -57,7 +57,7 @@ class GetBankOffersUseCaseImplTest {
     }
 
 
-    /* This is the way which i try using mock the useCase implementation instead of observer*/
+    /* This is the way which i try mocking the useCase implementation instead of observer*/
     @Test
     fun `call onError when usecase is executed fail`() {
         val repository = mockk<BankRepository>()

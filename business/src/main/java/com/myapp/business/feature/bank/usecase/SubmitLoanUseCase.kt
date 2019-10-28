@@ -6,6 +6,7 @@ import com.myapp.business.core.callback.SingleLiveEvent
 import com.myapp.business.core.usecase.BaseUseCase
 import com.myapp.business.core.usecase.IUseCase
 import com.myapp.business.feature.bank.repository.BankRepository
+import com.myapp.business.feature.common.BusinessError
 
 
 interface SubmitLoanUseCase : IUseCase<String> {
@@ -15,12 +16,14 @@ interface SubmitLoanUseCase : IUseCase<String> {
     ): SubmitLoanUseCase
 }
 
-class SubmitLoanUseCaseImpl(var bankRepository: BankRepository) : BaseUseCase<String>(), SubmitLoanUseCase {
+class SubmitLoanUseCaseImpl(var bankRepository: BankRepository) : BaseUseCase<String>(),
+    SubmitLoanUseCase {
 
     var submitLoanResultLiveData = SingleLiveEvent<Resource<String>>()
     override fun resultLiveData(): MutableLiveData<Resource<String>> = submitLoanResultLiveData
 
     override fun onError(e: Throwable) {
+        submitLoanResultLiveData.postValue(Resource.error(BusinessError.GENERAL_ERROR, null))
     }
 
     override fun buildUseCase(
@@ -30,7 +33,8 @@ class SubmitLoanUseCaseImpl(var bankRepository: BankRepository) : BaseUseCase<St
         province: String,
         monthlyIncome: String
     ): SubmitLoanUseCase {
-        observable = bankRepository.submitLoan(phoneNumber, fullName, nationalId, province, monthlyIncome)
+        observable =
+            bankRepository.submitLoan(phoneNumber, fullName, nationalId, province, monthlyIncome)
         return this
     }
 }

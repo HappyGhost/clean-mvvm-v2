@@ -5,7 +5,7 @@ import okhttp3.Headers
 
 class BaseApiException : RuntimeException() {
     var code = ApiCode.UNKNOWN
-    var httpCode = 0
+    var httpCode: Int? = null
     var headers: Headers? = null
     var exceptionType: ExceptionType? = null
 
