@@ -1,7 +1,7 @@
 package com.myapp.myapplication.feature.dashboard.viewmodel
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.myapp.business.core.callback.Resource
 import com.myapp.business.feature.bank.info.BankOfferInfo
 import com.myapp.business.feature.bank.usecase.GetBankOffersIUseCase

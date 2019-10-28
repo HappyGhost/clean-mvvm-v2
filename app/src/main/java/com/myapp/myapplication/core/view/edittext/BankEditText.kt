@@ -1,7 +1,7 @@
 package com.myapp.myapplication.core.view.edittext
 
 import android.content.Context
-import android.support.design.widget.TextInputEditText
+import com.google.android.material.textfield.TextInputEditText
 import android.util.AttributeSet
 import com.myapp.myapplication.core.view.edittext.validation.BaseValidationRule
 import com.myapp.myapplication.core.view.edittext.validation.EmptyValidationRule

@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 
-abstract class BaseDialogMaterialView(protected val context: Context, buttonListener: DialogClickedListener?) {
+abstract class BaseDialogMaterialView(protected val context: Context) {
     val dialog: Dialog by lazy { Dialog(this.context, android.R.style.Theme_Translucent_NoTitleBar) }
 
     val customView: View by lazy { LayoutInflater.from(context).inflate(layout, null) }

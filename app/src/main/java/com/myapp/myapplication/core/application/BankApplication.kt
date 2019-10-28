@@ -1,7 +1,7 @@
 package com.myapp.mvvmexample.core.application
 
 import android.app.Activity
-import android.support.multidex.MultiDexApplication
+import androidx.multidex.MultiDexApplication
 import com.android.example.github.di.AppInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector

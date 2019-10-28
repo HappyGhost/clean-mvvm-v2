@@ -2,12 +2,12 @@ package com.myapp.mvvmexample.core.dialog
 
 import android.content.Context
 import android.graphics.PorterDuff
-import android.support.v4.content.ContextCompat
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.myapp.myapplication.R
 
-class LoadingDialogMaterial(context: Context) : BaseDialogMaterialView(context, null) {
+class LoadingDialogMaterial(context: Context) : BaseDialogMaterialView(context) {
 
     protected lateinit var mMessage: String
 

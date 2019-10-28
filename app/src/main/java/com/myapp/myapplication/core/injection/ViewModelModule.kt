@@ -16,8 +16,8 @@
 
 package com.android.example.github.di
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.myapp.mvvmexample.core.injection.BankViewModelFactory
 import com.myapp.myapplication.feature.dashboard.viewmodel.BankOfferViewModel
 import com.myapp.myapplication.feature.loan.viewmodel.RegisterLoanViewModel

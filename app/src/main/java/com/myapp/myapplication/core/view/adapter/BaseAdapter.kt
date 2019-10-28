@@ -1,6 +1,6 @@
 package com.myapp.mvvmexample.core.view.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import com.myapp.mvvmexample.core.view.adapter.holder.BaseHolder
 
 

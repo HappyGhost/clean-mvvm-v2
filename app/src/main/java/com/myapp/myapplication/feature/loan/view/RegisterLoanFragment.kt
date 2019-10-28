@@ -1,14 +1,14 @@
 package com.myapp.myapplication.feature.loan.view
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.myapp.business.core.callback.Status
 import com.myapp.mvvmexample.core.view.BaseFragment
 import com.myapp.myapplication.R
@@ -42,7 +42,7 @@ class RegisterLoanFragment : BaseFragment() {
 
     private fun initProvinceField() {
         val adapter = ArrayAdapter(
-            context, android.R.layout.simple_spinner_item,
+            requireContext(), android.R.layout.simple_spinner_item,
             arrayListOf<String>()
         ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
         spinnerProvince.adapter = adapter
